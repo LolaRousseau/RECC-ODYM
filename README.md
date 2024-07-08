@@ -1,4 +1,11 @@
+The RECC model used for studying the extended Greater Oslo region
 
+Forked from IndEcol/RECC-ODYM (commit 95eb08b - May 21st, 2023)
+Last update: July 2024
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
 ### RECC - Resource Efficiency – Climate Change mitigation framework
 
 The resource efficiency–climate change (RECC) mitigation model framework is a step towards the interdisciplinary scientific assessment of material efficiency and its links to service provision, material cycle management, and climate policy. RECC is based on dynamic material flow analysis and links the services provided (individual motorized transport and shelter) to the operation of in-use stocks of products (passenger vehicles and residential buildings), to their expansion and maintenance, and to their material cycles to model mitigation strategies and analyze trade-offs for environmental impacts along the products’ life cycle. A key innovation of RECC is the upscaling of product archetypes with different degrees of material and energy efficiency, which are simulated with engineering tools. RECC scenarios are driven by parameters that augment the storylines of the shared socioeconomic pathways (SSP) to describe future service demand and associated material requirements. In its current implementation (model versions 2.2., 2.4, and 2.5), ten material efficiency strategies at different stages of the material cycle can be assessed by ramping up their implementation rates to the identified technical potentials. RECC provides scenario results for the life cycle impacts of ambitious service–material decoupling concurrent with energy system decarbonization, giving detailed insights on the RECC mitigation nexus to policy-makers worldwide.
