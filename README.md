@@ -1,6 +1,9 @@
 The RECC model used for studying the extended Greater Oslo region
 
-Forked from IndEcol/RECC-ODYM (commit 95eb08b - May 21st, 2023)
+- Forked from IndEcol/RECC-ODYM (commit 95eb08b - May 21st, 2023)
+
+- ODYM from IndEcol/ODYM (commit f8cb37c - July 8th, 2022)
+
 Last update: July 2024
 
 
