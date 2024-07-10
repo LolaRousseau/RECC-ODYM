@@ -1,0 +1,38 @@
+Adding more flexibility
+	- Rename population parameter
+	- Changing 'Region32' to 'Region'
+	- Loop for changes in several parameters to update the .dat file (instead of deleting .dat file and recreate it for just a few parameters)
+	- Adding reb and nreb sections to be able to run then separately
+	- Adding possibility to study individual drivers and export of the results (folder name)
+	
+Study from 2022 to 2050 (instead of 2015-2060 as per original code)
+	- Changing name parameter '2_S_RECC_FinalProducts_2015_resbuildings' to '2_S_RECC_FinalProducts_2022_resbuildings'
+	- Changing 115 to 122 when it has to be changed
+	- Changing the Ind2015 to Ind_year and adding Year_Start
+	- Changing 2015/2016 by using Year_Start
+	- Run only until 2050 (instead of 2060) - adding Year_End
+	
+Infrastructure + connect the sectors together
+	- Adding infrastructure, adding bitumen/asphalt
+	- Two types of asphalt for the two layers (vegdekke, barelag)
+	- Infrastructure maintenance fixed (maintaining only vegdekke)
+	- Getting roads connected to res buildings
+	- Getting pkm connected to res buildings and infrastructure
+	- Adding alternatives pkm
+
+Changes in the res buildings
+	- Adding AB_standard archetype
+	- Add district heating
+	- Changes on energy res buildings
+	- Fixing indirect emissions res buildings
+	
+About the results
+	- Comment the plotting part
+	- Disaggregation of results and reorganize the export
+
+Other fixing/changes
+	- Correcting error in reading 3_SHA_EnergyCarrierSplit_Vehicles
+	- Disaggregation of concrete
+	- Hydrogren fixed
+	- Fixing forestry from Stefan as per commit ba3e2a4 in IndEcol/RECC-ODYM
+	- Changing names of scenarios implied some changes in the code (like changing RCP2.6 to DEC)
