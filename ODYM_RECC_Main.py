@@ -1659,9 +1659,9 @@ def main():
                         Stock_Detail_UsePhase_i[:,Year_Start,Inf_mun_loc,r] = RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_mun_loc,0]
                         # needs to re-scale the stock values based on 2022 values
                         stock_mun_0 = RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_mun_loc,0]
-                        stock_mun_0_from_reg = 0.3840 + 0.2333 * Stock_Detail_UsePhase_B[0,:,:,r].sum() + 0.2569 * RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0]
-                        stock_mun_t = (0.3840 + Stock_Detail_UsePhase_B[t,:,:,r].sum() * 0.2333 + RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0] * 0.2569) * stock_mun_0 / stock_mun_0_from_reg
-                        stock_mun_t_1 = (0.3840 + Stock_Detail_UsePhase_B[t-1,:,:,r].sum() * 0.2333 + RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0] * 0.2569) * stock_mun_0 / stock_mun_0_from_reg
+                        stock_mun_0_from_reg = 0.3833 + 0.2326 * Stock_Detail_UsePhase_B[0,:,:,r].sum() + 0.2562 * RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0]
+                        stock_mun_t = (0.3833 + Stock_Detail_UsePhase_B[t,:,:,r].sum() * 0.2326 + RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0] * 0.2562) * stock_mun_0 / stock_mun_0_from_reg
+                        stock_mun_t_1 = (0.3833 + Stock_Detail_UsePhase_B[t-1,:,:,r].sum() * 0.2326 + RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_reg_loc,0] * 0.2562) * stock_mun_0 / stock_mun_0_from_reg
                         # Calculate inflow based on difference with expected future stock
                         Inflow_Detail_UsePhase_i[t,Inf_mun_loc,r] = stock_mun_t - stock_mun_t_1
                         ### make sure the inflow is not negative
@@ -1675,9 +1675,9 @@ def main():
                         Stock_Detail_UsePhase_i[:,Year_Start,Inf_bicped_loc,r] = RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_bicped_loc,0]
                         # needs to re-scale the stock values based on 2022 values
                         stock_bicped_0 = RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_bicped_loc,0]
-                        stock_bicped_0_from_reg = -0.0206 + 0.2161 * RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_mun_loc,0] + 0.1726 * Stock_Detail_UsePhase_B[0,:,AB_loc,r].sum()
-                        stock_bicped_t = (-0.0206 + 0.2161 * Stock_Detail_UsePhase_i[t,:,Inf_mun_loc,r].sum() + 0.1726 * Stock_Detail_UsePhase_B[t,:,AB_loc,r].sum()) * stock_bicped_0 / stock_bicped_0_from_reg
-                        stock_bicped_t_1 = (-0.0206 + 0.2161 * Stock_Detail_UsePhase_i[t-1,:,Inf_mun_loc,r].sum() + 0.1726 * Stock_Detail_UsePhase_B[t-1,:,AB_loc,r].sum()) * stock_bicped_0 / stock_bicped_0_from_reg
+                        stock_bicped_0_from_reg = -0.0205 + 0.2161 * RECC_System.ParameterDict[f'2_S_RECC_FinalProducts_{1900+Year_Start}_infrastructures'].Values[r,Inf_mun_loc,0] + 0.1725 * Stock_Detail_UsePhase_B[0,:,AB_loc,r].sum()
+                        stock_bicped_t = (-0.0205 + 0.2161 * Stock_Detail_UsePhase_i[t,:,Inf_mun_loc,r].sum() + 0.1725 * Stock_Detail_UsePhase_B[t,:,AB_loc,r].sum()) * stock_bicped_0 / stock_bicped_0_from_reg
+                        stock_bicped_t_1 = (-0.0205 + 0.2161 * Stock_Detail_UsePhase_i[t-1,:,Inf_mun_loc,r].sum() + 0.1725 * Stock_Detail_UsePhase_B[t-1,:,AB_loc,r].sum()) * stock_bicped_0 / stock_bicped_0_from_reg
                         # Calculate inflow based on difference with expected future stock
                         Inflow_Detail_UsePhase_i[t,Inf_bicped_loc,r] = stock_bicped_t - stock_bicped_t_1
                         ### make sure the inflow is not negative
@@ -1726,18 +1726,18 @@ def main():
                             RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (4928.1153 + 4.344e+08 * Stock_Detail_UsePhase_i[t,:,Inf_mun_loc,r].sum()/(Population[t,r,mS,mR]*10**6)) * F_Function_Future_0 / F_Function_Future_0_from_reg
                         
                         ### ALTERNATIVE PKM 1
-                        ### pkm_estimated =  2367.0925 + 2.381e+04 * df_pkm['SFH_standard_share'].values
+                        ### pkm_estimated = 2.272e+04 - 6638.1607 * df_pkm['reb_per_roads'].values
                         elif ScriptConfig['pkm_alternative'] == 1:
                             F_Function_Future_0 = RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,0,mS]
-                            F_Function_Future_0_from_reg = 2367.0925 + 2.381e+04 * Stock_Detail_UsePhase_B[0,:,SFH_loc,r].sum()/Stock_Detail_UsePhase_B[0,:,:,r].sum()
-                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (2367.0925 + 2.381e+04 * Stock_Detail_UsePhase_B[t,:,SFH_loc,r].sum()/Stock_Detail_UsePhase_B[t,:,:,r].sum()) * F_Function_Future_0 / F_Function_Future_0_from_reg   
-
+                            F_Function_Future_0_from_reg = 2.272e+04 - 6638.1607 * Stock_Detail_UsePhase_B[0,:,:,r].sum()/Stock_Detail_UsePhase_i[0,:,:,r].sum()
+                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (2.272e+04 - 6638.1607 * Stock_Detail_UsePhase_B[t,:,:,r].sum()/Stock_Detail_UsePhase_i[t,:,:,r].sum()) * F_Function_Future_0 / F_Function_Future_0_from_reg   
+                        
                         ### ALTERNATIVE PKM 2
-                        ### pkm_estimated = 2.27e+04 - 6646.1113 * df_pkm['reb_per_roads'].values
+                        ### pkm_estimated = 2351.8395 + 2.38e+04 * df_pkm['SFH_standard_share'].values
                         elif ScriptConfig['pkm_alternative'] == 2:
                             F_Function_Future_0 = RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,0,mS]
-                            F_Function_Future_0_from_reg = 2.27e+04 - 6646.1113 * Stock_Detail_UsePhase_B[0,:,:,r].sum()/Stock_Detail_UsePhase_i[0,:,:,r].sum()
-                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (2.27e+04 - 6646.1113 * Stock_Detail_UsePhase_B[t,:,:,r].sum()/Stock_Detail_UsePhase_i[t,:,:,r].sum()) * F_Function_Future_0 / F_Function_Future_0_from_reg   
+                            F_Function_Future_0_from_reg = 2351.8395 + 2.38e+04 * Stock_Detail_UsePhase_B[0,:,SFH_loc,r].sum()/Stock_Detail_UsePhase_B[0,:,:,r].sum()
+                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (2351.8395 + 2.38e+04 * Stock_Detail_UsePhase_B[t,:,SFH_loc,r].sum()/Stock_Detail_UsePhase_B[t,:,:,r].sum()) * F_Function_Future_0 / F_Function_Future_0_from_reg   
 
                         ### ALTERNATIVE PKM 3
                         ### pkm_estimated = 2.204e+04 - 5.904e+04 * df_pkm['bicycle and pedestrian path_share'].values
@@ -1747,11 +1747,11 @@ def main():
                             RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (2.204e+04 - 5.904e+04 * Stock_Detail_UsePhase_i[t,:,Inf_bicped_loc,r].sum()/Stock_Detail_UsePhase_i[t,:,:,r].sum()) * F_Function_Future_0 / F_Function_Future_0_from_reg 
                             
                         ## ALTERNATIVE PKM 4
-                        ## pkm_estimated = 5081.6451 + 3.28e+08 * df_pkm['SFH_standard_per_capita'].values
+                        ## pkm_estimated = 5083.9526 + 3.257e+08 * df_pkm['SFH_standard_per_capita'].values
                         elif ScriptConfig['pkm_alternative'] == 4:
                             F_Function_Future_0 = RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,0,mS]
-                            F_Function_Future_0_from_reg = 5081.6451 + 3.28e+08 * Stock_Detail_UsePhase_B[0,:,SFH_loc,r].sum()/(Population[0,r,mS,mR]*10**6)
-                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (5081.6451 + 3.28e+08 * Stock_Detail_UsePhase_B[t,:,SFH_loc,r].sum()/(Population[t,r,mS,mR]*10**6)) * F_Function_Future_0 / F_Function_Future_0_from_reg   
+                            F_Function_Future_0_from_reg = 5083.9526 + 3.257e+08 * Stock_Detail_UsePhase_B[0,:,SFH_loc,r].sum()/(Population[0,r,mS,mR]*10**6)
+                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (5083.9526 + 3.257e+08 * Stock_Detail_UsePhase_B[t,:,SFH_loc,r].sum()/(Population[t,r,mS,mR]*10**6)) * F_Function_Future_0 / F_Function_Future_0_from_reg   
                     
 
                 Total_Service_pav_tr_pC                     = np.einsum('rt->tr',RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,:,:,mS])
