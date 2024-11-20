@@ -1727,14 +1727,14 @@ def main():
                         
                         ### ALTERNATIVE PKM 1
                         ### pkm_estimated = 1.42329794e+04 - 4.37523178e-01 * df_pkm['cap_per_inf'].values + 4.30000766e-06 * (df_pkm['cap_per_inf'].values)**2
-                        if ScriptConfig['pkm_alternative'] == 2:
+                        if ScriptConfig['pkm_alternative'] == 1:
                             F_Function_Future_0 = RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,0,mS]
                             F_Function_Future_0_from_reg = 1.42329794e+04 - 4.37523178e-01 * ((Population[0,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[0,:,:,r].sum()) + 4.30000766e-06 * ((Population[0,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[0,:,:,r].sum())**2
-                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (1.42329794e+04 - 4.37523178e-01 * ((Population[0,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[t,:,:,r].sum()) + 4.30000766e-06 * ((Population[0,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[t,:,:,r].sum())**2) * F_Function_Future_0 / F_Function_Future_0_from_reg   
+                            RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (1.42329794e+04 - 4.37523178e-01 * ((Population[t,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[t,:,:,r].sum()) + 4.30000766e-06 * ((Population[t,r,mS,mR]*10**6)/Stock_Detail_UsePhase_i[t,:,:,r].sum())**2) * F_Function_Future_0 / F_Function_Future_0_from_reg   
                         
                         ### ALTERNATIVE PKM 2
                         ### pkm_estimated = 15097.2 - 9702.3 * df_pkm['SFH_standard_share'].values + 1815.4 
-                        elif ScriptConfig['pkm_alternative'] == 1:
+                        elif ScriptConfig['pkm_alternative'] == 2:
                             F_Function_Future_0 = RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,0,mS]
                             F_Function_Future_0_from_reg = 15097.2 - 9702.3 * Stock_Detail_UsePhase_B[0,:,:,r].sum()/Stock_Detail_UsePhase_i[0,:,:,r].sum() + 1815.4 * (Stock_Detail_UsePhase_B[0,:,:,r].sum()/Stock_Detail_UsePhase_i[0,:,:,r].sum())**2
                             RECC_System.ParameterDict['1_F_Function_Future'].Values[Sector_pav_loc,r,t,mS] = (15097.2 - 9702.3 * Stock_Detail_UsePhase_B[t,:,:,r].sum()/Stock_Detail_UsePhase_i[t,:,:,r].sum() + 1815.4 * (Stock_Detail_UsePhase_B[t,:,:,r].sum()/Stock_Detail_UsePhase_i[t,:,:,r].sum())**2) * F_Function_Future_0 / F_Function_Future_0_from_reg   
