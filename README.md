@@ -4,8 +4,7 @@ The RECC model used for studying the extended Greater Oslo region
 
 - ODYM from IndEcol/ODYM (commit f8cb37c - July 8th, 2022)
 
-Last update: July 2024
-
+It has been used in the following publication: "Reducing material use and their greenhouse gas emissions in Greater Oslo" by Rousseau, L. S. A., Næss, J. S., Carrer, F., Amini, S., Brattebø, H., & Hertwich, E. G. in Journal of Industrial Ecology (https://doi.org/10.1111/jiec.13611)
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
